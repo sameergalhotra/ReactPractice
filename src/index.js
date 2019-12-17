@@ -4,4 +4,4 @@ import ReactDOM from "react-dom";
 import App from "./container/App";
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<App appTitle="Person Manager" />, rootElement);
