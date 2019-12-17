@@ -9,7 +9,7 @@ const persons = props =>
         Age={p.Age}
         Key={p.Id}
         Click={() => props.clicked(index)}
-        Changed={event => props.changed(event, p.Id)}
+        changed={event => props.changed(event, p.Id)}
       />
     );
   });
