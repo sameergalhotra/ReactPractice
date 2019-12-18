@@ -4,6 +4,7 @@ import classes from "./App.module.css";
 
 import Persons from "../Components/Persons/Persons";
 import Cockpit from "../Components/Cockpit/Cockpit";
+import AuthContext from "../Context/Auth-context";
 
 class App extends Component {
   state = {
@@ -13,7 +14,8 @@ class App extends Component {
       { Id: 3, Name: "Person 3", Age: 32 }
     ],
     otherState: "some other value",
-    showPersons: false
+    showPersons: false,
+    authenticated: false
   };
 
   TextChagnedeventHandler = event => {
@@ -44,6 +46,10 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   };
 
+  loginhandler = () => {
+    this.setState({ authenticated: true });
+  };
+
   render() {
     let persons = null;
 
@@ -59,13 +65,20 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <Cockpit
-          title={this.props.appTitle}
-          showPersons={this.state.showPersons}
-          persons={this.state.Persons}
-          clicked={this.togglePersonsHandler}
-        />
-        {persons}
+        <AuthContext.Provider
+          value={{
+            authenticated: this.state.authenticated,
+            login: this.loginhandler
+          }}
+        >
+          <Cockpit
+            title={this.props.appTitle}
+            showPersons={this.state.showPersons}
+            persons={this.state.Persons}
+            clicked={this.togglePersonsHandler}
+          />
+          {persons}
+        </AuthContext.Provider>
       </div>
     );
   }
