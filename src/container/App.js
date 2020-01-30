@@ -9,9 +9,9 @@ import AuthContext from "../Context/Auth-context";
 class App extends Component {
   state = {
     Persons: [
-      { Id: 1, Name: "Person 1", Age: 30 },
-      { Id: 2, Name: "Person 2", Age: 31 },
-      { Id: 3, Name: "Person 3", Age: 32 }
+      { Id: 1, Name: "Person 11", Age: 30 },
+      { Id: 2, Name: "Person 12", Age: 31 },
+      { Id: 3, Name: "Person 13", Age: 32 }
     ],
     otherState: "some other value",
     showPersons: false,
